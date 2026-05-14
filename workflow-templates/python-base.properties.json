@@ -1,0 +1,6 @@
+{
+  "name": "Python CI (uv + pytest, self-hosted)",
+  "description": "setup-python + setup-uv + uv sync + pytest; runs on racknerd self-hosted runner. Adjust uv sync flags / pytest target per project layout.",
+  "iconName": "code",
+  "categories": ["Continuous integration", "Python"]
+}

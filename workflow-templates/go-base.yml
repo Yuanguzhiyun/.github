@@ -1,0 +1,24 @@
+name: Go CI
+# Yuanguzhiyun org template — runs on self-hosted [racknerd] by default.
+# go-version 自动从 repo 的 go.mod 读取；setup-go cache 安全（_tool/ 不被 runner 周清 cron 清）。
+on: [push, pull_request]
+permissions:
+  contents: read
+concurrency:
+  group: go-ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: [self-hosted, racknerd]
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: go vet
+        run: go vet ./...
+      - name: go test -race
+        # racknerd MemoryMax=1.5G — race detector 内存翻倍，必要时改 -parallel 1 防 OOM
+        run: go test -race -count=1 ./...

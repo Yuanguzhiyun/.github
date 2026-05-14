@@ -1,0 +1,6 @@
+{
+  "name": "Go CI (vet + test -race, self-hosted)",
+  "description": "go vet + go test -race; reads go-version from repo go.mod; runs on racknerd self-hosted runner. If race test OOMs (1.5G MemoryMax), add -parallel 1.",
+  "iconName": "code",
+  "categories": ["Continuous integration", "Go"]
+}
