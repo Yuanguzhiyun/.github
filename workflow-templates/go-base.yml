@@ -1,5 +1,14 @@
 name: Go CI
 # Yuanguzhiyun org template — runs on self-hosted [racknerd] by default.
+#
+# ⚠️ Trust boundary 依赖（consumer repo 必须满足，否则不要用本模板）：
+#   1. private repo（仅 org collaborator 可访问）
+#   2. org Actions Settings 已设 "Require approval for fork pull request workflows"
+#   3. org workflow `default_workflow_permissions=read`
+#   4. workflow `permissions:` 显式声明所需权限（最小特权）
+# 不满足上述条件（如 fork-friendly public repo / 不受信 collaborator）必须改用 ubuntu-hosted 或
+# ephemeral runner / per-job container，不要复用本模板。
+#
 # go-version 自动从 repo 的 go.mod 读取；setup-go cache 安全（_tool/ 不被 runner 周清 cron 清）。
 on: [push, pull_request]
 permissions:
