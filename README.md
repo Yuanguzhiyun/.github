@@ -1,6 +1,6 @@
 # Yuanguzhiyun org infra (`.github` repo)
 
-Org-wide GitHub infrastructure SSOT。本次选择 **public** 是为覆盖所有 repo 类型 + 简化访问控制（free org plan 不可用 internal；private alternative `.github-private` 适合需收敛可见性的场景，但需配套权限管理）。本 repo 不含 secrets / 业务代码 / CI workflow，无 fork PR 暴露面。
+Org-wide GitHub infrastructure SSOT。本次选择 **public** 以覆盖所有 repo 类型 + 简化访问控制（free org plan 不可用 internal）。**Private alternative**：把本 `.github` repo 自身设为 private 并授 org members Read access（templates 仍对 org 内 repo 可见）；本次未采用。**注意 `.github-private` 是不同概念**——它专用于 member-only org profile README，**不是** workflow templates 的 private alternative。本 repo 不含 secrets / 业务代码 / CI workflow，无 fork PR 暴露面。
 
 ## `workflow-templates/`
 
